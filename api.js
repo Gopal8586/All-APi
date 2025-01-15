@@ -1,14 +1,21 @@
 const express = require('express');
+const cors = require('cors');
+const path = require('path');
 const app = express();
 
 // Middleware to parse JSON
 app.use(express.json());
+app.use(cors());
+
+
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 // Sample food items data
 const foodItems = [
-    { id: 1, name: 'Paneer Butter Masala', price: 250, category: 'Main Course' },
-    { id: 2, name: 'Veg Biryani', price: 200, category: 'Rice' },
-    { id: 3, name: 'Masala Dosa', price: 120, category: 'Breakfast' },
+    { id: 1, name: 'Paneer Butter Masala', price: 250, category: 'Main Course', image: 'public/images/chai1.png' },
+    { id: 2, name: 'Veg Biryani', price: 200, category: 'Rice', image: '/images/water.png' },
+    { id: 3, name: 'Masala Dosa', price: 120, category: 'Breakfast', image: 'https://images.pexels.com/photos/4449068/pexels-photo-4449068.jpeg' },
     { id: 4, name: 'Pav Bhaji', price: 150, category: 'Snacks' },
     { id: 5, name: 'Chole Bhature', price: 180, category: 'Main Course' },
     { id: 6, name: 'Rajma Chawal', price: 160, category: 'Main Course' },
