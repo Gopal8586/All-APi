@@ -6,7 +6,7 @@ const app = express();
 // Middleware to parse JSON
 app.use(express.json());
 app.use(cors());
-
+Access-Control-Allow-Origin: *
 
 app.use(express.static(path.join(__dirname, 'public')));
 
